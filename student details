@@ -1,0 +1,36 @@
+#include<stdio.h>
+struct student
+{
+    char name[100];
+    int  user_id ;
+    int age ;
+};
+struct students 
+{
+    struct student s[100];
+    int n;
+};
+void output(struct student v)
+{
+    printf("student name : %s\n",v.name);
+    printf("user id : %d\n",v.user_id);
+    printf("age : %d\n",v.age);
+}
+struct student input()
+{
+    struct student v;
+    printf("enter student name : ");
+    scanf ("%s", v.name);
+    printf("enter userid : \n ");
+    scanf ("%d", &v.user_id);
+    printf("enter age : \n");
+    scanf ("%d",&v.age);
+    return v;
+}
+
+int main()
+{
+    struct student v;
+    v=input();
+    output(v);
+}
