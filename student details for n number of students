@@ -1,0 +1,66 @@
+#include<stdio.h>
+struct student 
+{
+    char name[100] ;
+    int age;
+    int user_id;
+};
+struct students
+{
+    struct student students[100];
+    int n;
+};
+    
+void outputs(struct students p)
+{
+    for(int j=0;j<p.n;j++)
+    {
+        printf("%dth student name :%s\n",j+1,p.students[j].name);
+        printf ("%dth age:%d\n",j+1,p.students[j].age);
+        printf("%dth user_id:%d\n",j+1,p.students[j].user_id);
+    }
+}
+void output (struct student v)
+{  
+        printf("student name :%s\n",v.name);
+        printf ("age:%d\n",v.age);
+        printf("user_id:%d\n",v.user_id);
+};
+struct student input()
+{
+    struct student v ;
+    printf("enter student name :\n");
+    scanf("%s", v.name);
+    printf("enter student age :\n");
+    scanf ("%d", &v.age);
+    printf ("enter user_id: \n");
+    scanf ("%d", &v.user_id);
+    return v;
+};
+struct students input_function()
+{
+    struct students p;
+    printf("Enter the number of students\n");
+    scanf("%d",&p.n);
+    for(int j=0;j<p.n;j++)
+    {
+        printf("enter %dth student name :\n",j+1);
+        scanf("%s", p.students[j].name);
+        printf("enter %dth student age :\n",j+1);
+        scanf ("%d", &p.students[j].age);
+        printf ("enter %dth user_id: \n",j+1);
+        scanf ("%d", &p.students[j].user_id);
+    }
+
+    return p;
+}
+
+int main()
+{
+    struct student v;
+    struct students p;
+    v=input();
+    p=input_function();
+    output(v);
+    outputs(p);
+}
